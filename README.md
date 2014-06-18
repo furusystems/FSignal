@@ -1,4 +1,4 @@
-FSignal
+FSignal (aka 'Hey look, yet another Haxe signals implementation!')
 =======
 
 Simple cross plat Signals for Haxe.
@@ -8,3 +8,5 @@ Three variations exist, starting with 0 arguments up to 3.
 For instance, a signal that dispatches two floats and a string would be declared as such:
 
     var sig = new fsignal.Signal3<Float,Float,String>();
+
+Signals support the usual add, addOnce, removeAll and dispose.
