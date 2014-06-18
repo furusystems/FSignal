@@ -1,0 +1,11 @@
+{
+  "name": "fsignal",
+  "url": "",
+  "license": "MIT",
+  "tags": [],
+  "description": "Simple cross platform signals for Haxe",
+  "version": "1.0.0",
+  "releasenote": "",
+  "contributors": ["decept404"],
+  "dependencies": { }
+}
