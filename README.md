@@ -1,5 +1,6 @@
-FSignal (aka 'Hey look, yet another Haxe signals implementation!')
+FSignal 
 =======
+(aka 'Hey look, yet another Haxe signals implementation!')
 
 Simple cross plat Signals for Haxe.
 Uses generics for strong typing on compatible platforms. 
