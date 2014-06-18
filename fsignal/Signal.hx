@@ -4,10 +4,6 @@ package fsignal;
  * ...
  * @author Andreas Rønning
  */
-enum ListenerTypes {
-	ONCE;
-	NORMAL;
-}
 class Signal
 {
 	var _listeners:Array<Listener0>;
@@ -34,7 +30,7 @@ class Signal
 			}
 		}
 	}
-	function get_listenerCount():Int 
+	inline function get_listenerCount():Int 
 	{
 		return _listenerCount;
 	}

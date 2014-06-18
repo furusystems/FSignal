@@ -1,11 +1,12 @@
 package fsignal;
-import fsignal.Signal.ListenerTypes;
 
 /**
  * ...
  * @author Andreas Rønning
  */
-#if fwgenerics @:generic @:remove #end
+#if !js
+@:generic @:remove
+#end
 class Signal1<T>
 {
 	var _listeners:Array<Listener1<T>> ;
@@ -32,7 +33,7 @@ class Signal1<T>
 			}
 		}
 	}
-	function get_listenerCount():Int 
+	inline function get_listenerCount():Int 
 	{
 		return _listenerCount;
 	}
@@ -60,14 +61,16 @@ class Signal1<T>
 		if (oneshot) removeAll();
 	}
 }
-#if fwgenerics @:generic @:remove #end 
+#if !js
+@:generic @:remove 
+#end
 private class Listener1<T> {
 	public var func:T->Void;
 	public var type:ListenerTypes;
 	public inline function execute(arg:T):Void {
 		func(arg);
 	}
-	public function new(type:ListenerTypes, func:T->Void) {
+	public inline function new(type:ListenerTypes, func:T->Void) {
 		this.type = type;
 		this.func = func;
 	}
