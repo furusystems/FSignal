@@ -1,6 +1,6 @@
 package fsignal;
 
-enum ListenerTypes {
+enum ListenerType {
 	ONCE;
 	NORMAL;
 }

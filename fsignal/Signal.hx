@@ -17,10 +17,10 @@ class Signal
 	}
 	public inline function add(func:Void->Void):Void {
 		remove(func);
-		_listeners.push( new Listener0(ListenerTypes.NORMAL, func) );
+		_listeners.push( new Listener0(ListenerType.NORMAL, func) );
 		_listenerCount++;
 	}
-	public inline function remove(func:Void->Void):Void {
+	public function remove(func:Void->Void):Void {
 		for (l in _listeners) 
 		{
 			if (l.func == func) {
@@ -34,9 +34,9 @@ class Signal
 	{
 		return _listenerCount;
 	}
-	public inline function addOnce(func:Void->Void):Void {
+	public function addOnce(func:Void->Void):Void {
 		remove(func);
-		_listeners.push( new Listener0(ListenerTypes.ONCE, func) );
+		_listeners.push( new Listener0(ListenerType.ONCE, func) );
 		_listenerCount++;
 	}
 	public inline function removeAll():Void {
@@ -47,11 +47,11 @@ class Signal
 		_listeners = null;
 		_listenerCount = 0;
 	}
-	public inline function dispatch():Void {
+	public function dispatch():Void {
 		for (i in _listeners) 
 		{
 			i.execute();
-			if (i.type == ListenerTypes.ONCE) {
+			if (i.type == ListenerType.ONCE) {
 				_listeners.remove(i);
 			}
 		}
@@ -60,11 +60,11 @@ class Signal
 }
 private class Listener0 {
 	public var func:Void->Void;
-	public var type:ListenerTypes;
+	public var type:ListenerType;
 	public inline function execute():Void {
 		func();
 	}
-	public function new(type:ListenerTypes, func:Void->Void) {
+	public inline function new(type:ListenerType, func:Void->Void) {
 		this.type = type;
 		this.func = func;
 	}

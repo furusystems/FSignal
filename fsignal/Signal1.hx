@@ -20,10 +20,10 @@ class Signal1<T>
 	}
 	public inline function add(func:T->Void):Void {
 		remove(func);
-		_listeners.push( new Listener1<T>(ListenerTypes.NORMAL, func) );
+		_listeners.push( new Listener1<T>(ListenerType.NORMAL, func) );
 		_listenerCount++;
 	}
-	public inline function remove(func:T->Void):Void {
+	public function remove(func:T->Void):Void {
 		for (l in _listeners) 
 		{
 			if (l.func == func) {
@@ -39,7 +39,7 @@ class Signal1<T>
 	}
 	public inline function addOnce(func:T->Void):Void {
 		remove(func);
-		_listeners.push( new Listener1<T>(ListenerTypes.ONCE, func) );
+		_listeners.push( new Listener1<T>(ListenerType.ONCE, func) );
 		_listenerCount++;
 	}
 	public inline function removeAll():Void {
@@ -50,11 +50,11 @@ class Signal1<T>
 		_listeners = null;
 		_listenerCount = 0;
 	}
-	public inline function dispatch(value:T):Void {
+	public function dispatch(value:T):Void {
 		for (i in _listeners) 
 		{
 			i.execute(value);
-			if (i.type == ListenerTypes.ONCE) {
+			if (i.type == ListenerType.ONCE) {
 				_listeners.remove(i);
 			}
 		}
@@ -66,11 +66,11 @@ class Signal1<T>
 #end
 private class Listener1<T> {
 	public var func:T->Void;
-	public var type:ListenerTypes;
+	public var type:ListenerType;
 	public inline function execute(arg:T):Void {
 		func(arg);
 	}
-	public inline function new(type:ListenerTypes, func:T->Void) {
+	public inline function new(type:ListenerType, func:T->Void) {
 		this.type = type;
 		this.func = func;
 	}
