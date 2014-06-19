@@ -11,3 +11,4 @@ For instance, a signal that dispatches two floats and a string would be declared
     var sig = new fsignal.Signal3<Float,Float,String>();
 
 Signals support the usual add, addOnce, removeAll and dispose.
+Additionally, the signal constructor can enable a "oneshot" mode where the listener list is cleared every dispatch. 
