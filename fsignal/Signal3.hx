@@ -4,7 +4,7 @@ package fsignal;
  * @author Andreas Rønning
 */
 #if !js
-@:generic @:remove
+@:generic
 #end
  class Signal3<T,T2,T3>
 {
@@ -61,7 +61,7 @@ package fsignal;
 	}
 }
 #if !js
-@:generic @:remove
+@:generic
 #end
 private class Listener3<T,T2,T3> {
 	public var func:T->T2->T3->Void;
