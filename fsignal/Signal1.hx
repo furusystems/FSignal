@@ -11,7 +11,7 @@ class Signal1<T>
 {
 	var _listeners:Array<Listener1<T>> ;
 	var _listenerCount:Int = 0;
-	public var listenerCount(get_listenerCount, null):Int;
+	public var listenerCount(get, null):Int;
 	public var oneshot:Bool;
 	public function new(oneshot:Bool = false) 
 	{
