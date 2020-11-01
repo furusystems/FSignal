@@ -18,7 +18,7 @@ class Signal1<T>
 		this.oneshot = oneshot;
 		_listeners = new Array<Listener1<T>>();
 	}
-	public inline function add(func:T->Void):Void {
+	public function add(func:T->Void):Void {
 		remove(func);
 		_listeners.push( new Listener1<T>(ListenerType.NORMAL, func) );
 		_listenerCount++;
@@ -37,16 +37,16 @@ class Signal1<T>
 	{
 		return _listenerCount;
 	}
-	public inline function addOnce(func:T->Void):Void {
+	public function addOnce(func:T->Void):Void {
 		remove(func);
 		_listeners.push( new Listener1<T>(ListenerType.ONCE, func) );
 		_listenerCount++;
 	}
-	public inline function removeAll():Void {
+	public function removeAll():Void {
 		_listeners = new Array<Listener1<T>>();
 		_listenerCount = 0;
 	}
-	public inline function dispose():Void {
+	public function dispose():Void {
 		_listeners = null;
 		_listenerCount = 0;
 	}

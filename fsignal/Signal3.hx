@@ -17,7 +17,7 @@ package fsignal;
 		this.oneshot = oneshot;
 		_listeners = new Array<Listener3<T,T2,T3>>();
 	}
-	public inline function add(func:T->T2->T3->Void):Void {
+	public function add(func:T->T2->T3->Void):Void {
 		remove(func);
 		_listeners.push( new Listener3<T,T2,T3>(ListenerType.NORMAL, func) );
 		_listenerCount++;
@@ -36,16 +36,16 @@ package fsignal;
 	{
 		return _listenerCount;
 	}
-	public inline function addOnce(func:T->T2->T3->Void):Void {
+	public function addOnce(func:T->T2->T3->Void):Void {
 		remove(func);
 		_listeners.push( new Listener3<T,T2,T3>(ListenerType.ONCE, func) );
 		_listenerCount++;
 	}
-	public inline function removeAll():Void {
+	public function removeAll():Void {
 		_listeners = new Array<Listener3<T,T2,T3>>();
 		_listenerCount = 0;
 	}
-	public inline function dispose():Void {
+	public function dispose():Void {
 		_listeners = null;
 		_listenerCount = 0;
 	}
